@@ -7,3 +7,21 @@ func Sum(numbers []int) int {
 	}
 	return sum
 }
+
+func SumAll(numbersToSum ...[]int) []int {
+	// lengthOfNumbers := len(numbersToSum)
+	// sums := make([]int, lengthOfNumbers)
+	var sums []int
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
+	}
+	return sums
+}
+
+func SumAllTails(numberToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numberToSum {
+		sums = append(sums, Sum(numbers[1:]))
+	}
+	return sums
+}
